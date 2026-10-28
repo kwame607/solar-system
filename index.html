@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PracticalQuiz2</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+</head>
+
+<body>
+<a-scene>
+
+  <!-- ASSETS -->
+  <a-assets>
+    <img id="space" src="texture/2k_stars_milky_way.jpg">
+    <img id="tex-sun" src="texture/2k_sun.jpg">
+    <img id="tex-mercury" src="texture/2k_mercury.jpg">
+    <img id="tex-venus" src="texture/2k_venus_atmosphere.jpg">
+    <img id="tex-earth" src="texture/2k_earth_daymap.jpg">
+    <img id="tex-moon" src="texture/2k_moon.jpg">
+    <img id="tex-mars" src="texture/2k_mars.jpg">
+    <img id="tex-jupiter" src="texture/2k_jupiter.jpg">
+    <img id="tex-saturn" src="texture/2k_saturn.jpg">
+    <img id="tex-saturn-ring" src="texture/2k_saturn_ring_alpha.png">
+    <img id="tex-uranus" src="texture/2k_uranus.jpg">
+    <img id="tex-neptune" src="texture/2k_neptune.jpg">
+    <img id="tex-venus-surface" src="texture/2k_venus_surface.jpg">
+  </a-assets>
+
+  <!-- SKY -->
+  <a-sky src="#space"></a-sky>
+
+  <!-- CAMERA -->
+  <a-entity id="cameraRig" position="11 5 20">
+    <a-camera></a-camera>
+  </a-entity>
+
+  <!-- SUN -->
+  <a-sphere radius="4"
+            material="src:#tex-sun; emissive:#FFA500"
+            position="0 0 0">
+      <a-text
+            value="SUN"
+            position="0 5 0"
+            align="center"
+            color="#FFD700"
+            width="10"
+            look-at="#cameraRig">
+      </a-text>
+          
+  </a-sphere>
+
+  <!-- MERCURY -->
+  <a-entity animation="property: rotation; to: 0 360 0; dur:12000; loop:true">
+    <a-ring rotation="-90 0 0" radius-inner="7.9" radius-outer="8.1"
+            material="color:#4b6cb7; opacity:0.4"></a-ring>
+    <a-entity position="8 0 0">
+      <a-sphere radius="0.4" material="src:#tex-mercury">
+    <a-text
+        value="MERCURY"
+        position="0 0.8 0"
+        align="center"
+        color="#FFFFFF"
+        width="4.5"
+        look-at="#cameraRig">
+    </a-text>
+      </a-sphere>
+    </a-entity>
+  </a-entity>
+
+  <!-- VENUS-->
+    <a-entity animation="property: rotation; to: 0 360 0; dur:18000; loop:true">
+    <a-ring rotation="-90 0 0" radius-inner="9.9" radius-outer="10.1"
+          material="color:#4b6cb7; opacity:0.4"></a-ring>
+
+    <a-entity position="10 0 0">
+    <!-- Venus surface -->
+        <a-sphere 
+        radius="0.7"
+        material="src:#tex-venus-surface">
+        <a-text
+            value="VENUS"
+            position="0 1 0"
+            align="center"
+            color="#FFFFFF"
+            width="4.5"
+            look-at="#cameraRig">
+        </a-text>
+        </a-sphere>
+
+    <!-- Venus atmosphere-->
+    <a-sphere 
+      radius="0.75"
+      material="src:#tex-venus; transparent:true; opacity:0.6">
+    </a-sphere>
+  </a-entity>
+</a-entity>
+
+
+  <!-- EARTH with MOON -->
+  <a-entity animation="property: rotation; to: 0 360 0; dur:24000; loop:true">
+    <a-ring rotation="-90 0 0" radius-inner="12.9" radius-outer="13.1"
+            material="color:#4b6cb7; opacity:0.4"></a-ring>
+
+    <a-entity position="13 0 0">
+      <a-sphere radius="0.8" material="src:#tex-earth">
+    <a-text
+        value="EARTH"
+        position="0 1.2 0"
+        align="center"
+        color="#FFFFFF"
+        width="4.5"
+        look-at="#cameraRig">
+    </a-text>
+
+      </a-sphere>
+
+      <!-- MOON -->
+      <a-entity animation="property: rotation; to: 0 360 0; dur:4000; loop:true">
+        <a-sphere radius="0.2" position="1.5 0 0" material="src:#tex-moon">
+            <a-text
+                value="MOON"
+                position="0 0.4 0"
+                align="center"
+                color="#CCCCCC"
+                width="3"
+                look-at="#cameraRig">
+            </a-text>
+
+        </a-sphere>
+      </a-entity>
+    </a-entity>
+  </a-entity>
+
+  <!-- MARS -->
+  <a-entity animation="property: rotation; to: 0 360 0; dur:30000; loop:true">
+    <a-ring rotation="-90 0 0" radius-inner="15.9" radius-outer="16.1"
+            material="color:#4b6cb7; opacity:0.4"></a-ring>
+    <a-entity position="16 0 0">
+      <a-sphere radius="0.6" material="src:#tex-mars">
+        <a-text
+            value="MARS"
+            position="0 1 0"
+            align="center"
+            color="#FFFFFF"
+            width="4.5"
+            look-at="#cameraRig">
+        </a-text>
+
+      </a-sphere>
+    </a-entity>
+  </a-entity>
+
+  <!-- JUPITER -->
+  <a-entity animation="property: rotation; to: 0 360 0; dur:90000; loop:true; easing:linear">
+    <a-ring rotation="-90 0 0" radius-inner="20.9" radius-outer="21.1"
+            material="color:#4b6cb7; opacity:0.5"></a-ring>
+    <a-entity position="21 0 0">
+      <a-sphere radius="2.5" material="src:#tex-jupiter">
+    <a-text
+        value="JUPITER"
+        position="0 3 0"
+        align="center"
+        color="#FFFFFF"
+        width="6.5"
+        look-at="#cameraRig">
+    </a-text>
+
+      </a-sphere>
+    </a-entity>
+  </a-entity>
+
+  <!-- SATURN -->
+  <a-entity animation="property: rotation; to: 0 360 0; dur:120000; loop:true; easing:linear">
+    <a-ring rotation="-90 0 0" radius-inner="25.9" radius-outer="26.1"
+            material="color:#4b6cb7; opacity:0.5"></a-ring>
+    <a-entity position="26 0 0">
+      <a-sphere radius="2" material="src:#tex-saturn">
+        <a-text
+            value="SATURN"
+            position="0 3 0"
+            align="center"
+            color="#FFFFFF"
+            width="6"
+            look-at="#cameraRig">
+        </a-text>
+
+      </a-sphere>
+      <a-ring rotation="90 0 0" radius-inner="2.4" radius-outer="3.6"
+              material="src:#tex-saturn-ring; side:double; transparent:true"></a-ring>
+    </a-entity>
+  </a-entity>
+  <!-- URANUS -->
+  <a-entity animation="property: rotation; to: 0 360 0; dur:160000; loop:true; easing:linear">
+    <a-ring rotation="-90 0 0" radius-inner="30.9" radius-outer="31.1"
+            material="color:#4b6cb7; opacity:0.5"></a-ring>
+            <a-entity position="31 0 0">
+                <a-sphere 
+                  radius="1.6" 
+                  material="src:#tex-uranus" 
+                  rotation="0 0 98">
+                </a-sphere>
+                <a-text
+                  value="URANUS"
+                  position="0 2.5 0"
+                  align="center"
+                  color="#FFFFFF"
+                  width="5"
+                  look-at="#cameraRig">
+                </a-text>
+              
+              </a-entity>
+              
+  </a-entity>
+
+  <!-- NEPTUNE -->
+  <a-entity animation="property: rotation; to: 0 360 0; dur:200000; loop:true; easing:linear">
+    <a-ring rotation="-90 0 0" radius-inner="35.9" radius-outer="36.1"
+            material="color:#4b6cb7; opacity:0.5"></a-ring>
+    <a-entity position="36 0 0">
+      <a-sphere radius="1.5" material="src:#tex-neptune">
+        <a-text
+            value="NEPTUNE"
+            position="0 2.5 0"
+            align="center"
+            color="#FFFFFF"
+            width="6"
+            look-at="#cameraRig">
+        </a-text>
+
+      </a-sphere>
+    </a-entity>
+  </a-entity>
+
+</a-scene>
+</body>
+</html>
